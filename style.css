@@ -1,0 +1,301 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.attribution { 
+    margin-top: 15px;
+    font-size: 11px; 
+    text-align: center;
+}
+.attribution a { 
+    color: hsl(228, 45%, 44%);
+}
+
+
+@font-face {
+    font-family: "Kumbh Sans Regular";
+    src: url("static/KumbhSans-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Kumbh Sans Bold";
+    src: url("static/KumbhSans-Bold.ttf") format("truetype");
+    font-weight: 700;
+}
+:root{
+
+    --Orange: hsl(26, 100%, 55%);
+    --Pale-orange: hsl(25, 95%, 75%);
+
+    --Very-dark-blue: hsl(220, 13%, 13%);
+    --Dark-grayish-blue: hsl(219, 9%, 45%);
+    --Grayish-blue: hsl(220, 14%, 75%);
+    --Light-grayish-blue: hsl(223, 64%, 98%);
+    --White: hsl(0, 0%, 100%);
+    /*(with 75% opacity for lightbox background)*/
+    --Black: hsl(0, 0%, 0%);
+}
+
+body{
+    width: 100vw;
+}
+nav{
+    position: fixed;
+    height: 100vh;
+    background-color: var(--White);
+    width: 70%;
+    max-width: 0;
+    transition: max-width 1s ease;
+    overflow: hidden;
+    z-index: 4;
+    &.active{
+        max-width: 70vw;
+    }
+}
+
+#closeButton{
+    margin: 20px;
+}
+
+ol{
+    padding-left: 20px;
+    margin-top: 20px;
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    & a{
+        font-family: "Kumbh Sans Regular";
+        text-decoration: none;
+        color: var(--Very-dark-blue);
+        line-height: 2;
+        font-weight: 700;
+        font-size: 18px;
+    }
+    & a:hover{
+        color: var(--Dark-grayish-blue);
+        border-bottom: 1px solid var(--Orange);
+    }
+}
+
+aside{
+    background-color: var(--Black);
+    top: 0;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    opacity: 70%;
+    display: none;
+    z-index: 3;
+}
+
+#cartStatus{
+    font-family: "Kumbh Sans Regular";
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--White);
+    margin: 0 10px;
+    width: 95vw;
+    height: 32vh;
+    overflow: hidden;
+    top: -40vh;
+    z-index: 2;
+    border-radius: 4px;
+    box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.438);
+    transition: 0.8s ease-out;
+
+    & span:first-child{
+        padding: 20px;
+        width: 100%;
+        border-bottom: 1px solid var(--Grayish-blue);
+    }
+
+    & span:last-child{
+        text-align: center;
+        color: var(--Dark-grayish-blue);
+        margin: auto;
+    }
+
+    &.active{
+        top: 8vh;
+    }
+}
+
+header{
+    padding: 20px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background-color: var(--White);
+    & img{
+        width: 20px;
+    }
+
+    & #logo{
+        flex-grow: 2;
+    }
+
+    & button{
+        all: unset;
+        position: relative;
+        & span{
+            position: absolute;
+            font-size: 8px;
+            text-align: center;
+            margin: auto;
+            color: var(--White);
+            background-color: var(--Orange);
+            padding: 2px 5px;
+            border-radius: 50%;
+            display: inline;
+            left: 50%;
+            bottom: 65%;
+            visibility: hidden;
+        }
+    }
+}
+
+main{
+    font-family: "Kumbh Sans Regular";
+
+    & h1{
+        color: var(--Dark-grayish-blue);
+        font-size: 12px;
+        letter-spacing: 1.5px;
+        padding: 10px 0;
+    }
+
+    & h2{
+        font-family: "Kumbh Sans Bold";
+        color: var(--Black);
+        padding: 10px 0;
+    }
+    & p{
+        color: var(--Dark-grayish-blue);
+        font-size: 14px;
+        padding: 10px 0;
+        line-height: 1.5;
+    }
+    & #mainView{
+        padding: 15px 30px;
+    }
+
+    & #discount{
+        margin-top: 10px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-family: "Kumbh Sans Bold";
+        & div{
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        & #discounted{
+            font-size: 27px;
+        }
+
+        & #discountValue{
+            padding: 3px 8px;
+            color: var(--White);
+            background-color: var(--Black);
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        & #fullPrice{
+            color: var(--Dark-grayish-blue);
+        }
+    }
+
+    & #amount{
+        margin-top: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px;
+        width: 100%;
+        background-color: var(--Light-grayish-blue);
+        border-radius: 4px;
+
+        & button{
+            all: unset;
+        }
+    }
+}
+#container{
+    position: relative;
+    width: 100%;
+
+    & #slider{
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: absolute;
+        transform: translateY(-50%);
+        top: 50%;
+        padding: 0 14px;
+        z-index: 1;
+        & button{
+            all: unset;
+        }
+        & img{
+            width: 30px;
+            background-color: var(--White);
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        & img:active{
+            background-color: var(--Grayish-blue);
+        }
+    }
+    & #imageContainer{
+        & ul{
+            position: relative;
+            list-style-type: none;
+            display: flex;
+            flex-direction: row;
+            width: max-content;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            transition: 1s;
+            & li{
+                scroll-snap-align: start;
+
+                & img{
+                    width: 100vw;
+                    aspect-ratio: 4/3.5;
+                }
+            }
+            
+        }
+    }
+}
+#addToCartButton{
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    width: 100%;
+    border: none;
+    background-color: var(--Orange);
+    font-family: "Kumbh Sans Bold";
+    box-shadow: 0 14px 30px 0 hsla(26, 100%, 55%, 0.397);
+
+
+}
+
+#addToCartButton:hover{
+    background-color: var(--Pale-orange);
+}
