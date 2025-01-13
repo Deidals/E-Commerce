@@ -22,8 +22,10 @@ let lengthItems = items.length - 1;
 const cartButton = document.querySelector(`header button`);
 let cartAmount = document.querySelector(`#cartAmount`);
 
-
-
+const CartThirdChild = document.querySelector(`#CartThirdChild`);
+const Checkout = document.querySelector(`#Checkout`);
+const CartSecondChild = document.querySelector(`#CartSecondChild`);
+const deleteButton = document.querySelector(`#deleteButton`);
 
 
 menuButton.addEventListener(`click`, () => {
@@ -83,9 +85,22 @@ cartButton.addEventListener(`click`, () => {
 
 addToCartButton.addEventListener(`click`, () =>{
     cartAmount.innerHTML = amountToCart;
+    document.querySelector(`#times`).innerHTML = amountToCart;
+    document.querySelector(`#result`).innerHTML = `$${amountToCart * 125}`;
     if(Number(cartAmount.innerHTML) !== 0){
     cartAmount.style.visibility = `visible`;
+    CartSecondChild.style.visibility = `hidden`;
+    CartThirdChild.style.visibility = `visible`;
+    Checkout.style.visibility = `visible`
 }else{
     cartAmount.style.visibility = `hidden`;
 }
-})
+});
+
+deleteButton.addEventListener(`click`, () => {
+    CartThirdChild.style.visibility = `hidden`;
+    Checkout.style.visibility = `hidden`;
+    CartSecondChild.style.visibility= `visible`;
+    cartAmount.innerHTML = `0`
+    cartAmount.style.visibility = `hidden`
+});

@@ -100,7 +100,7 @@ aside{
     background-color: var(--White);
     margin: 0 10px;
     width: 95vw;
-    height: 32vh;
+    height: 28vh;
     overflow: hidden;
     top: -40vh;
     z-index: 2;
@@ -108,16 +108,49 @@ aside{
     box-shadow: 0 10px 30px 0 rgba(0, 0, 0, 0.438);
     transition: 0.8s ease-out;
 
-    & span:first-child{
+    & #CartFirstChild{
         padding: 20px;
         width: 100%;
         border-bottom: 1px solid var(--Grayish-blue);
     }
 
-    & span:last-child{
+    & #CartSecondChild{
+        position: relative;
         text-align: center;
         color: var(--Dark-grayish-blue);
-        margin: auto;
+        top: 34%;
+        z-index: 4;
+    }
+
+    & div{
+        visibility: hidden;
+        position: relative;
+        z-index: 3;
+        display: flex;
+        gap: 10px;
+        padding: 0 15px;
+        font-size: 17px;
+        color: var(--Dark-grayish-blue);
+        line-height: 1.5;
+        top: 10%;
+
+        & #result{
+            color: var(--Black);
+        }
+        & img{
+            width: 25%;
+            border-radius: 4px;
+            aspect-ratio: 4/3;
+        }
+
+        & p{
+            padding: 0;
+        }
+
+        & button{
+            all: unset;
+        }
+
     }
 
     &.active{
@@ -268,10 +301,12 @@ main{
             transition: 1s;
             & li{
                 scroll-snap-align: start;
+                
 
                 & img{
+                    object-fit: cover;
                     width: 100vw;
-                    aspect-ratio: 4/3.5;
+                    aspect-ratio: 4/3;
                 }
             }
             
@@ -292,10 +327,23 @@ main{
     background-color: var(--Orange);
     font-family: "Kumbh Sans Bold";
     box-shadow: 0 14px 30px 0 hsla(26, 100%, 55%, 0.397);
+}
 
+#Checkout{
+    position: relative;
+    top: 10%;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    width: 92%;
+    margin: 20px auto;
+    border: none;
+    background-color: var(--Orange);
+    font-family: "Kumbh Sans Bold";
+    visibility: hidden;
 
 }
 
-#addToCartButton:hover{
+#addToCartButton:hover, #Checkout:hover{
     background-color: var(--Pale-orange);
 }
