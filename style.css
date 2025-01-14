@@ -40,11 +40,19 @@
 }
 
 body{
-    width: 100vw;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--Grayish-blue);
+
 }
 nav{
     position: fixed;
-    height: 100vh;
+    left: 0;
+    top: 0;
+    height: 100%;
     background-color: var(--White);
     width: 70%;
     max-width: 0;
@@ -100,6 +108,7 @@ aside{
     background-color: var(--White);
     margin: 0 10px;
     width: 95vw;
+    max-width: 475px;
     height: 28vh;
     overflow: hidden;
     top: -40vh;
@@ -161,6 +170,8 @@ aside{
 header{
     padding: 20px;
     display: flex;
+    width: 100%;
+    max-width: 500px;
     gap: 10px;
     align-items: center;
     background-color: var(--White);
@@ -194,6 +205,9 @@ header{
 
 main{
     font-family: "Kumbh Sans Regular";
+    max-width: 500px;
+    margin: auto;
+    background-color: var(--White);
 
     & h1{
         color: var(--Dark-grayish-blue);
@@ -262,6 +276,7 @@ main{
 }
 #container{
     position: relative;
+    overflow: hidden;
     width: 100%;
 
     & #slider{
@@ -306,6 +321,7 @@ main{
                 & img{
                     object-fit: cover;
                     width: 100vw;
+                    max-width: 500px;
                     aspect-ratio: 4/3;
                 }
             }
@@ -346,4 +362,35 @@ main{
 
 #addToCartButton:hover, #Checkout:hover{
     background-color: var(--Pale-orange);
+}
+
+@media screen and (min-width: 1000px) {
+/*     #menuButton{
+        display: none;
+    }
+    nav{
+        position: relative;
+        max-width: 100%;
+        height: auto;
+        & ol{
+            display: flex;
+            flex-direction: row;
+        }
+        & #closeButton{
+            display: none;
+        }
+    } */
+/*     nav{
+        position: fixed;
+        height: 100vh;
+        background-color: var(--White);
+        width: 70%;
+        max-width: 0;
+        transition: max-width 1s ease;
+        overflow: hidden;
+        z-index: 4;
+        &.active{
+            max-width: 70vw;
+        }
+    } */
 }
