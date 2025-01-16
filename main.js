@@ -104,3 +104,31 @@ deleteButton.addEventListener(`click`, () => {
     cartAmount.innerHTML = `0`
     cartAmount.style.visibility = `hidden`
 });
+
+
+const nav = document.querySelector(`nav ol`);
+const header = document.querySelector(`header`);
+const originalContainer = document.querySelector(`nav`);
+
+    // Function to move <nav> as the third child of <header>
+    function moveNav() {
+        if (window.innerWidth >= 1000) {
+          // Check if <nav> is not already the third child
+          if (header.children.length >= 2 && header.children[2] !== nav) {
+            if (header.children.length > 2) {
+              header.insertBefore(nav, header.children[2]); // Insert <nav> before the third child
+            } else {
+              header.appendChild(nav); // If less than 3 children, append it as the last child
+            }
+          }
+        } else {
+          // Move <nav> back to the original container if width < 768px
+          if (!originalContainer.contains(nav)) {
+            originalContainer.appendChild(nav);
+          }
+        }
+      }
+  
+      // Run on load and listen for resize events
+      moveNav(); // Check initially
+      window.addEventListener('resize', moveNav);

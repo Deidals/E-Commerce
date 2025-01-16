@@ -6,6 +6,9 @@
 
 
 .attribution { 
+    background-color: var(--White);
+    width: 100%;
+    height: 6vh;
     margin-top: 15px;
     font-size: 11px; 
     text-align: center;
@@ -41,6 +44,7 @@
 
 body{
     width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,6 +71,7 @@ nav{
 #closeButton{
     margin: 20px;
 }
+
 
 ol{
     padding-left: 20px;
@@ -173,10 +178,11 @@ header{
     width: 100%;
     max-width: 500px;
     gap: 10px;
-    align-items: center;
+    align-items: flex-end;
     background-color: var(--White);
     & img{
-        width: 20px;
+        width: 25px;
+        border-radius: 50%;
     }
 
     & #logo{
@@ -365,32 +371,129 @@ main{
 }
 
 @media screen and (min-width: 1000px) {
-/*     #menuButton{
+
+    body{
+        background-color: var(--White);
+    }
+    #menuButton{
         display: none;
     }
     nav{
         position: relative;
         max-width: 100%;
         height: auto;
-        & ol{
-            display: flex;
-            flex-direction: row;
-        }
         & #closeButton{
             display: none;
         }
-    } */
-/*     nav{
-        position: fixed;
-        height: 100vh;
-        background-color: var(--White);
-        width: 70%;
-        max-width: 0;
-        transition: max-width 1s ease;
-        overflow: hidden;
-        z-index: 4;
-        &.active{
-            max-width: 70vw;
+    }
+
+    ol{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: flex-end;
+        gap: 30px;
+        flex-grow: 1;
+        padding: 0;
+        margin: 0;
+
+
+        & a{
+            color: var(--Dark-grayish-blue);
+            padding-bottom: 4.7vh;
+
+            &:hover{
+                color: var(--Very-dark-blue);
+                border-bottom: 8px solid var(--Orange);
+            }
         }
-    } */
+    }
+    header{
+        max-width: 100%;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid var(--Grayish-blue);
+        padding: 4vh 13%;
+        gap: 2vw;
+
+        & #logo{
+            flex-grow: 0;
+        }
+
+        & img{
+            width: 3.5vw;
+
+            &:hover{
+                border: 2.5px solid var(--Orange);
+            }
+        }
+    }
+
+    main{
+        max-width: 75%;
+        height: 80%;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3vw;
+
+
+        & #mainView{
+            padding-top: 5vh;
+        }
+
+        & #amount{
+            width: 30%;
+        }
+
+        & #discount{
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 10px;
+        }
+
+        & #container{
+            width: 100%;
+            max-width: 500px;
+            height: 80%;W
+            overflow: hidden;
+            & #slider{
+                display: none;
+            }
+
+            & #imageContainer{
+
+                height: 100%;
+                & ul{
+                    width: 400%;
+                    & li{
+                        overflow: hidden;
+                        & img{
+                            width: 100%;
+                            border-radius: 1em;
+                            aspect-ratio: 1/1;
+                        }
+                    }
+                }
+            }
+        }
+
+
+    }
+    h2{
+        font-size: 40px;
+    }
+
+
+    .divOne{
+        display: flex;
+        gap: 15px;
+    }
+    #addToCartButton{
+        width: 70%;
+    }
+
+
+
 }
